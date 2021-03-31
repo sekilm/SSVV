@@ -15,13 +15,13 @@ public class AssignmentTestsWBT {
     }
 
     @Test
-    public void addAssigment_testValidEntity() throws ValidatorException {
+    public void addAssignment_testValidEntity() throws ValidatorException {
         TemaLab assignment = new TemaLab(4, "descriere", 10, 11);
         assertNull(assignmentRepo.save(assignment));
     }
 
     @Test
-    public void addAssigment_testExistingEntity() throws ValidatorException {
+    public void addAssignment_testExistingEntity() throws ValidatorException {
         TemaLab assignment = new TemaLab(4, "descriere", 10, 11);
         assignmentRepo.save(assignment);
         assert(assignmentRepo.save(assignment) == assignment);

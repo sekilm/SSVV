@@ -4,8 +4,6 @@ import Repository.XMLFileRepository.AbstractXMLRepo;
 import Repository.XMLFileRepository.StudentXMLRepo;
 import Validator.StudentValidator;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,12 +13,6 @@ public class StudentTests {
     public StudentTests() {
         studentRepo = new StudentXMLRepo(new StudentValidator(), "test_student.xml");
     }
-
-//    @BeforeEach
-//    public void setUp() {
-//        System.out.println("hi i'm here");
-//        studentRepo = new StudentXMLRepo(new StudentValidator(), "test_student.xml");
-//    }
 
     @Test
     public void testIdNotNull() throws ValidatorException {
