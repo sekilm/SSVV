@@ -21,9 +21,13 @@ public class AssignmentTestsWBT {
     }
 
     @Test
-    public void addAssignment_testExistingEntity() throws ValidatorException {
-        TemaLab assignment = new TemaLab(4, "descriere", 10, 11);
-        assignmentRepo.save(assignment);
-        assert(assignmentRepo.save(assignment) == assignment);
+    public void addAssignment_NegativeWeek() {
+        TemaLab assignment = new TemaLab(1, "descriere", -1, 11);
+        assertThrows(ValidatorException.class, () -> assignmentRepo.save(assignment));
+    }
+
+    @Test
+    public void addAssignment_NullEntity() {
+        assertThrows(IllegalArgumentException.class, () -> assignmentRepo.save(null));
     }
 }
