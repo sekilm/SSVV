@@ -1,6 +1,6 @@
 package Domain;
 
-public class Student implements HasId<String> {
+public class Student implements Domain.HasId<String> {
     private  String id;
     private  String nume;
     private int grupa;

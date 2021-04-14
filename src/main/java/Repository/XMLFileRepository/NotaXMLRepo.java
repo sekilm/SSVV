@@ -8,7 +8,7 @@ import Validator.NotaValidator;
 import java.time.LocalDateTime;
 
 
-public class NotaXMLRepo extends AbstractXMLRepo<Integer, Nota> {
+public class NotaXMLRepo extends Repository.XMLFileRepository.AbstractXMLRepo<Integer, Nota> {
     //private String fileName;
 
     public NotaXMLRepo(NotaValidator v, String fileName) {
