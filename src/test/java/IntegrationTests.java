@@ -24,8 +24,36 @@ public class IntegrationTests {
         Domain.TemaLab assignment = new Domain.TemaLab(4, "descriere", 10, 11);
         assertNull(assignmentRepo.save(assignment));
 
-        Domain.Nota grade = new Domain.Nota(1, "1", 1, 10, LocalDateTime.of(2021,
+        Domain.Nota grade = new Domain.Nota(1, "1", 4, 10, LocalDateTime.of(2021,
                 Month.APRIL, 29, 19, 30, 40));
+        assertNull(gradeRepository.save(grade));
+    }
+
+    @Test
+    public void topDownIntegrationStudent() throws Exceptions.ValidatorException {
+        Domain.Student student = new Domain.Student("2", "Daniel", 934, "daniel@y.com", "");
+        assertNull(studentRepo.save(student), "Student added");
+    }
+
+    @Test
+    public void topDownIntegrationAssignment() throws Exceptions.ValidatorException {
+        Domain.Student student = new Domain.Student("2", "Daniel", 934, "daniel@y.com", "");
+        assertNull(studentRepo.save(student), "Student added");
+
+        Domain.TemaLab assignment = new Domain.TemaLab(6, "alta descriere", 11, 12);
+        assertNull(assignmentRepo.save(assignment));
+    }
+
+    @Test
+    public void topDownIntegrationGrade() throws Exceptions.ValidatorException {
+        Domain.Student student = new Domain.Student("2", "Daniel", 934, "daniel@y.com", "");
+        assertNull(studentRepo.save(student), "Student added");
+
+        Domain.TemaLab assignment = new Domain.TemaLab(6, "alta descriere", 11, 12);
+        assertNull(assignmentRepo.save(assignment));
+
+        Domain.Nota grade = new Domain.Nota(2, "2", 6, 8, LocalDateTime.of(2021,
+                Month.APRIL, 29, 20, 32, 42));
         assertNull(gradeRepository.save(grade));
     }
 }
