@@ -20,7 +20,7 @@ public class Main {
         NotaXMLRepo ntrepo=new NotaXMLRepo(vn,"NotaXML.xml");
         StudentXMLService stsrv=new StudentXMLService(strepo);
         TemaLabXMLService tmsrv=new TemaLabXMLService(tmrepo);
-        NotaXMLService ntsrv=new NotaXMLService(ntrepo);
+        NotaXMLService ntsrv=new NotaXMLService(ntrepo, strepo, tmrepo);
         ui ui=new ui(stsrv,tmsrv,ntsrv);
         ui.run();
     }

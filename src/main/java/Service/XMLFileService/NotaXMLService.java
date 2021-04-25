@@ -14,8 +14,10 @@ public class NotaXMLService extends AbstractXMLService<Integer,Nota>{
     private StudentXMLRepo studentRepo;
     private TemaLabXMLRepo assignmentRepo;
 
-    public NotaXMLService(NotaXMLRepo xmlrepo)  {
+    public NotaXMLService(NotaXMLRepo xmlrepo, StudentXMLRepo studentRepo, TemaLabXMLRepo assignmentRepo)  {
         super(xmlrepo);
+        this.studentRepo = studentRepo;
+        this.assignmentRepo = assignmentRepo;
     }
 
     public String depunctare(TemaLabXMLService srv,String idt,String val){
