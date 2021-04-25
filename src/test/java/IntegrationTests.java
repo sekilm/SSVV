@@ -52,7 +52,7 @@ public class IntegrationTests {
         Domain.TemaLab assignment = new Domain.TemaLab(6, "alta descriere", 11, 12);
         assertNull(assignmentRepo.save(assignment));
 
-        Domain.Nota grade = new Domain.Nota(2, "2", 6, 8, LocalDateTime.of(2021,
+        Domain.Nota grade = new Domain.Nota(2, "3", 6, 8, LocalDateTime.of(2021,
                 Month.APRIL, 29, 20, 32, 42));
         assertNull(gradeRepository.save(grade));
     }

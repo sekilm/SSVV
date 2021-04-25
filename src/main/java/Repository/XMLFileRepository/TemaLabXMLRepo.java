@@ -1,6 +1,7 @@
 package Repository.XMLFileRepository;
 
 import Domain.TemaLab;
+import Exceptions.ValidatorException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import Validator.TemaLabValidator;

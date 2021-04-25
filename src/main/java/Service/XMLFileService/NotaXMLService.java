@@ -1,12 +1,18 @@
 package Service.XMLFileService;
 
 import Domain.*;
+import Exceptions.ValidatorException;
 import Repository.XMLFileRepository.NotaXMLRepo;
+import Repository.XMLFileRepository.StudentXMLRepo;
+import Repository.XMLFileRepository.TemaLabXMLRepo;
+
 import java.io.*;
 import java.time.LocalDateTime;
 
 public class NotaXMLService extends AbstractXMLService<Integer,Nota>{
     private NotaXMLRepo xmlrepo;
+    private StudentXMLRepo studentRepo;
+    private TemaLabXMLRepo assignmentRepo;
 
     public NotaXMLService(NotaXMLRepo xmlrepo)  {
         super(xmlrepo);
@@ -43,7 +49,17 @@ public class NotaXMLService extends AbstractXMLService<Integer,Nota>{
     protected Nota extractEntity(String[] params){
         Nota n=new Nota(Integer.parseInt(params[0]),params[1],Integer.parseInt(params[2]),Double.parseDouble(params[3]), LocalDateTime.parse(params[4]));
         return n;
-
     }
 
+    @Override
+    public void add(String[] params) throws ValidatorException {
+        Student student = studentRepo.findOne(params[1]);
+        TemaLab assignment = assignmentRepo.findOne(Integer.parseInt(params[2]));
+        if (student == null || assignment == null) {
+            throw new ValidatorException("The student or assignment does not exist.");
+        }
+        else {
+            super.add(params);
+        }
+    }
 }
